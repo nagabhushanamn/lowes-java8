@@ -1,0 +1,23 @@
+
+
+
+   java-programming-style
+   -----------------------
+   
+   
+   'component & container' ==> Application
+   
+ --------------------------------------------------------------  
+   
+   Java SE
+   
+   	- application           : JRE
+   	- applet                : browser with JRE
+   	
+   Java EE
+   
+   	- web-components ( servlet & JSP )  : web-container ( e.g tomcat, jetty ,.. )
+   	- ejb-components                    : ejb-container ( e.g tomee, glassfish )
+   	
+ 
+ --------------------------------------------------------------  		 
