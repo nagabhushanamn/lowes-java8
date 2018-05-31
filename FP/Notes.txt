@@ -1,0 +1,32 @@
+
+
+
+	what is object ?
+	
+	 - State  ==> data,info,attr,prop,........
+	 - Bhevaior ==> function , method, oprn , ......
+	 
+	 ===> class  --> instance(s)
+	 
+	------------------------------------
+	OO concepts
+	-----------------
+		- Abstraction
+		- Encapsulation
+		- Inheritance
+		- Polymorphism
+   ----------------------------------------		
+   FP ( Functional Programming )
+   
+   ----------------------------------------	
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
