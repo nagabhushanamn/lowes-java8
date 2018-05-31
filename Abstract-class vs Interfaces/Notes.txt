@@ -1,0 +1,13 @@
+
+
+
+
+App
+-------------------------------------------------------------
+module-1               							module-2 
+
+Top-Level    ==> interfaces
+Middle-Level ==> Abstract-class ( optional )
+Bottom-level ==> concrete-class(s)
+
+-------------------------------------------------------------
