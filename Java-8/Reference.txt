@@ -1,0 +1,32 @@
+
+
+----------------------------------------------------------------------
+Optional Class
+----------------------------------------------------------------------
+=> used to deal with NullPointerException in Java application
+
+
+----------------------------------------------------------------------
+Nashorn is a JavaScript engine. 
+----------------------------------------------------------------------
+
+It is used to execute JavaScript code dynamically at JVM (Java Virtual Machine).
+Java provides a command-line tool jjs which is used to execute JavaScript code.
+
+----------------------------------------------------------------------
+ Parallel Array Sorting
+ ----------------------------------------------------------------------
+ 
+ New methods has added to java.util.Arrays package 
+ that use the JSR 166 Fork/Join parallelism common pool to provide sorting of arrays in parallel.
+ 
+ 
+ 
+ ----------------------------------------------------------------------
+ Java-9
+ -----------------------------------------------------------------------
+ 
+ 
+ ----------------------------------------------------------------------
+ Private Interface Methods
+ ----------------------------------------------------------------------

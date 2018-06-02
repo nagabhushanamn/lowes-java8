@@ -702,7 +702,7 @@ Composing Comparators:
 	
 			Comparator<Employee> byName=Comparator.comparing(Employee::getName)
 			Comparator<Employee> bySalary=Comparator.comparing(Employee::getSalary)
-			Comparator<Employee> byNameAndSalary=byName.comparingThen(bySalary);
+			Comparator<Employee> byNameAndSalary=byName.thenComparing(bySalary);
 
 ---------------------------------------------------------------------------------------			
 	
@@ -738,7 +738,7 @@ Composing Comparators:
 Sequence of Objects
 
 
-	- List                  -Iterator                        - Stream
+-array	- List                  -Iterator                        - Stream
 		
 		. add()                . iterate()                       . internal iteration
 		. remove()
@@ -780,7 +780,7 @@ Stream Interface
 Stream Interface
 
 	- Repeatedly apply an operation to all elements
-	- Responsibility shifts client to sream library 	
+	- Responsibility shifts client to stream library 	
 	
 	
 ---------------------------------------------------------------------------------------
@@ -789,7 +789,7 @@ Type of Operations
 
 	- Build ops  => creates stream from  data source
 	- Intermediate ops => Convert one stream to other
-	- Teminal ops => Convert stream into something else or nothing
+	- Terminal ops => Convert stream into something else or nothing
 	
 
 ---------------------------------------------------------------------------------------
@@ -827,18 +827,21 @@ Types of Stream
 
 Ordered vs. Unordered
 
-	- Objects in a stream may have a fixed order, or not
+	 Objects in a stream may have a fixed order, or not
+	
 	- Ordered Stream
-		=> Operations are performed in that order			
+		=> Operations are performed in that order	
+				
 	- Unordered Stream
 		=> Operations may be performed in any order
+		
 	- Sequential stream
 		=> Operations are performed on one object at a time
+		
 	- Parallel stream
 		=> Operations may be performed on several objects in parallel
+		
 			
-			
-	
 ---------------------------------------------------------------------------------------	
 	
 	
@@ -857,7 +860,7 @@ How can you create a stream?
 Creating streams from..
 
 	- A static sequence objects
-	- A Collection
+	- A Collection | Array
 	- A Computation
 	
 ---------------------------------------------------------------------------------------	
@@ -936,7 +939,7 @@ Creating Each Element from the Previous One
 
 
 	- In interface Stream
-		static <T> Stream<T> ieterate(T first,UnaryOperator<T> next)
+		static <T> Stream<T> iterate(T first,UnaryOperator<T> next)
 	- Generates an ordered infinite stream
 	- Example ( a stream of random integers) :
 	
@@ -985,7 +988,7 @@ A Lazy Example
 
 Pushing & Pulling
 
-    Elements are created and proceses when required by the terminal operation,that is
+    Elements are created and procesed when required by the terminal operation,that is
     elements are pulled from the end not pushed from the start
 
 ---------------------------------------------------------------------------------------
@@ -1062,7 +1065,7 @@ using 'flatMap'
         lib.stream()
            .flatMap(book->book.getWords().stream())
            .distinct()
-           .forEach(System.out""println) 
+           .forEach(System.out::println) 
 
 
 ---------------------------------------------------------------------------------------
@@ -1193,7 +1196,7 @@ Intermediate operations that select some elements and discard others
     based on:
 
         - content
-        - amount
+        - amount/limit
         - Uniqueness
 
 ---------------------------------------------------------------------------------------   
@@ -1210,7 +1213,7 @@ Filtering operations
 
     based on:
 
-        - content   : filter,takeWhile,dropWhile
+        - content   : filter,  in java-9 ,takeWhile,dropWhile
         - amount    : limit
         - Uniqueness: distinct
 
@@ -1247,7 +1250,7 @@ Example
     Stream<Integer> randoms=Stream.generate(random:nextInt);
 
     randoms.filter(n->n>0)
-           .distict()
+           .distinct()
            .limit(10)
            .forEach(System.out::println);
 
@@ -1379,7 +1382,7 @@ takeWhile Example
         emps.map(Employee::getAddress)
             .map(Address::getCity)
             .map(City:getName)
-            .distict()
+            .distinct()
             .forEach(System.out::println);
 
     --------------------------------------------------------------------------------------- 
@@ -1419,7 +1422,7 @@ takeWhile Example
                 .sorted(Comparator.comparingInt(Employee::getSalary.reversed())
                 .limit(10)
                 .map(Employee::getName)
-                .forEachOrdered(System.out::println)
+                .forEach(System.out::println)
 
     ---------------------------------------------------------------------------------------  
 
@@ -1438,7 +1441,7 @@ takeWhile Example
 
     Example
 
-        Objective : efficiently count the number od distinct integers in a list
+        Objective : efficiently count the number odd distinct integers in a list
 
 
         List<Integer> list=....;
@@ -1488,7 +1491,7 @@ takeWhile Example
 
         Stream<Integer> stream=...;
         stream.peek(System.out::println)
-              .fileter(n->n>0)
+              .filter(n->n>0)
               .distinct()
               .limit(10)
               .forEach(System.out::println)
@@ -1551,13 +1554,13 @@ takeWhile Example
 
 
 
-            - findFirst(),findAny(),min(Comparator<? super T>),max(Comparator<? super T>)    : OPtional<T>
+            - findFirst(),findAny(),min(Comparator<? super T>),max(Comparator<? super T>)    : Optional<T>
 
     ---------------------------------------------------------------------------------------
 
     Optional class
 
-        - Functional-style alternative to rturning 'null;
+        - Functional-style alternative to returning 'null;
         - can be chained
 
             String result=stream.min(comparator).orElse('default');
@@ -1744,7 +1747,8 @@ Example : concatenating string  ( imperative style )
 
 with stream, functional style
 
-    StringBuilder summary=collection.stream().collect(
+    StringBuilder summary=collection.stream()
+        .collect(
         ()->new StringBuilder(),
         (String Builder builder,String s)->builder.append(s),
         (StringBuilder builder1,StringBuilder bulder2)->builder1.append(builder2)
@@ -1781,9 +1785,9 @@ Standard collectors
 
  static factory methods of Collectors, returning Collector
 
- To Strings      : joining()
+ To Strings              : joining(",")
  To standard collections : toList(), toSet(), toCollection()
- to maps                 : tomap(), groupingBy(), partitioningBy()
+ to maps                 : toMap(), groupingBy(), partitioningBy()
 
 
  ---------------------------------------------------------------------------------------

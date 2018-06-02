@@ -20,9 +20,6 @@ public class Employee {
 		this.salary = salary;
 		this.gender = gender;
 	}
-	
-	
-
 	public Employee(int id, String name, double salary, Gender gender, Address address) {
 		super();
 		this.id = id;
@@ -93,11 +90,10 @@ public class Employee {
 			new Employee(10,"Nag", 800,Gender.MALE)
 		};
 
-
 	private static Random rand = new Random();
 	public static Employee[] randomlyGenerate(int n) {
 		return Stream.generate(() -> {
-			String name = "IBM-employee";
+			String name = "Lowes-employee";
 			int rn=rand.nextInt();
 			return new Employee(rn,name, rand.nextInt(1000),Gender.MALE);
 		}).limit(n).toArray(Employee[]::new);

@@ -1,0 +1,82 @@
+
+
+
+data structures
+-------------------
+
+
+	-> primitives / primary  ==> single data-element
+	
+	-> secondary   ==> multi-data-elements
+	
+			- linear
+				-> array
+				-> linked-list
+				-> stack
+				-> queue 
+				-> hashtable
+			- non-linear
+				-> tree
+				-> graph
+				
+ ------------------------------------------------------------
+ 
+ 
+  Collection F.W
+  ------------------
+  
+  ------------------------------------------------
+  
+  Collection	   
+ 		a - List
+			-> ordered
+			-> index based
+			-> can hold duplicates
+         b- Set
+     		-> unique elements
+     		-> Non-index
+  -------------------------------------------------       		
+         c- Map
+         	-> user-identity ( key ) + object
+-------------------------------------------------  
+
+Implementation(s)
+
+	1. List
+		
+		- Vector     --> dynamic-array ( thread-safe )
+		- ArrayList  --> dynamic-array
+		- LinkedList --> DLL
+		
+		-> Stack extends Vector
+		
+    2. Set
+    
+    		- TreeSet   --> b-tree  ( natural order )
+    		- HashSet   --> hashtable ( un-ordered  )
+    		- LinkedHashSet --> DLL + hashtable  ( ordered ) 	
+    		
+    3. Map
+    
+		
+    		- TreeMap   --> b-tree  ( natural order )
+    		- HashMap   --> hashtable ( un-ordered  )
+    		- LinkedHashMap --> DLL + hashtable  ( ordered ) 
+    		- Hashtable ( thread-safe )
+    		
+     4. Queue
+     
+     		- LinkedList
+     		- PriorityQueue
+     		- Dequeque
+     		
+     ........
+     
+     ------------------------------------------------------
+     
+     
+     				
+
+  			
+	
+		
